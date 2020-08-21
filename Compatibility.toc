@@ -1,5 +1,5 @@
 ## Interface: 20400
-## Title: !Compatibility
+## Title: Compatibility
 ## Notes: Compatibility functions for TBC
 ## Version: 1.0
 
