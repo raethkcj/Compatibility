@@ -7,17 +7,17 @@ local checked
 local function LoadDebugTools()
 	if checked then return end
 
-	local _, _, _, loadable, _, reason = GetAddOnInfo("!DebugTools")
+	local _, _, _, loadable, _, reason = GetAddOnInfo("DebugTools")
 	checked = true
 
 	if reason == "MISSING" then return end
 
 	if loadable then
-		LoadAddOn("!DebugTools")
+		LoadAddOn("DebugTools")
 	else
-		EnableAddOn("!DebugTools")
-		LoadAddOn("!DebugTools")
-		DisableAddOn("!DebugTools")
+		EnableAddOn("DebugTools")
+		LoadAddOn("DebugTools")
+		DisableAddOn("DebugTools")
 	end
 end
 
@@ -26,7 +26,7 @@ SLASH_FRAMESTACK2 = "/fstack"
 SlashCmdList["FRAMESTACK"] = function(msg)
 	LoadDebugTools()
 
-	if IsAddOnLoaded("!DebugTools") then
+	if IsAddOnLoaded("DebugTools") then
 		local showHiddenArg, showRegionsArg = strmatch(msg, "^%s*(%S+)%s+(%S+)%s*$")
 		if (not showHiddenArg or not showRegionsArg) then
 			showHiddenArg = strmatch(msg, "^%s*(%S+)%s*$")
@@ -44,7 +44,7 @@ SLASH_EVENTTRACE2 = "/etrace"
 SlashCmdList["EVENTTRACE"] = function(msg)
 	LoadDebugTools()
 
-	if IsAddOnLoaded("!DebugTools") then
+	if IsAddOnLoaded("DebugTools") then
 		EventTraceFrame_HandleSlashCmd(msg)
 	end
 end
@@ -53,7 +53,7 @@ SLASH_DUMP1 = "/dump"
 SlashCmdList["DUMP"] = function(msg)
 	LoadDebugTools()
 
-	if IsAddOnLoaded("!DebugTools") then
+	if IsAddOnLoaded("DebugTools") then
 		DevTools_DumpCommand(msg)
 	end
 end

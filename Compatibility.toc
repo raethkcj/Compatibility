@@ -6,3 +6,4 @@
 errorHandler.lua
 api\api.xml
 slashCommands.lua
+frame.lua
